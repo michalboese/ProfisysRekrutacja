@@ -1,0 +1,4 @@
+@profisys_backend_HostAddress = http://localhost:5179
+
+POST {{profisys_backend_HostAddress}}/api/UploadFiles/DeleteData
+

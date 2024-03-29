@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "CaSgOArNp3vKv3p84WORABz7wKLpZMeUEAHS4XCa3CA=",
+  "Source": "profisys_backend",
+  "BasePath": "_content/profisys_backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

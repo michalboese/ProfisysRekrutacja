@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\profisys_backend.props" />
+</Project>
