@@ -9,6 +9,7 @@
       "profisys_backend/1.0.0": {
         "dependencies": {
           "CsvHelper": "31.0.2",
+          "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly": "7.0.8",
           "Microsoft.EntityFrameworkCore": "8.0.3",
           "Microsoft.EntityFrameworkCore.Design": "8.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.3",
@@ -58,6 +59,18 @@
           "lib/net8.0/CsvHelper.dll": {
             "assemblyVersion": "31.0.0.0",
             "fileVersion": "31.0.2.15"
+          }
+        }
+      },
+      "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly/7.0.8": {
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.5",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.dll": {
+            "assemblyVersion": "7.0.8.0",
+            "fileVersion": "7.0.8.0"
           }
         }
       },
@@ -341,22 +354,22 @@
           "runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           },
           "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "5.1.1.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -943,6 +956,13 @@
       "sha512": "sha512-ndlIN77XcFm6qqGlNPzl0XjVupMCBVhVSiO+1+X2UhJtnnvkx9f//7FOvlkLuEQ76NC3Y7owa8IOhgtKVa4H7Q==",
       "path": "csvhelper/31.0.2",
       "hashPath": "csvhelper.31.0.2.nupkg.sha512"
+    },
+    "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly/7.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8IZEnBJl1IOemTiwLhxe+dBnchWMpXgn7uyqFB36faRcgiczw+Tv+79+SReNA8YaS2Ds7ybmOjNmbstE2GXA4Q==",
+      "path": "erikej.entityframeworkcore.sqlserver.dateonlytimeonly/7.0.8",
+      "hashPath": "erikej.entityframeworkcore.sqlserver.dateonlytimeonly.7.0.8.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

@@ -14,6 +14,12 @@ namespace profisys_backend.Repositories
             _context = context;
         }
 
+        public async Task<List<DocumentItems>> GetDocumentItemsAll()
+        {
+            var result = await _context.DocumentItems.ToListAsync();
+            return result;
+        }
+
         public async Task<List<DocumentItems>> GetDocumentItems(int documentId)
         {
             if (documentId == 0)
@@ -34,8 +40,8 @@ namespace profisys_backend.Repositories
 
         public async Task<List<Documents>> GetDocumentsAsync()
         {
-            var result = _context.Documents.ToListAsync();
-            return await result;
+            var result = await _context.Documents.ToListAsync();
+            return result;
 
         }
 

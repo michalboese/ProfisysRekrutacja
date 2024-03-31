@@ -21,6 +21,13 @@ namespace profisys_backend.Controllers
             List<Documents> documents = await _readDataRepository.GetDocumentsAsync();
             return Ok(documents);
         }
+        
+        [HttpGet("GetDocumentItemsAll")]
+        public async Task<ActionResult<DocumentItems>> GetDocumentItemsAll()
+        {
+            List<DocumentItems> documents = await _readDataRepository.GetDocumentItemsAll();
+            return Ok(documents);
+        }
 
         [HttpGet("GetDocumentItems/{documentId}")]
         public async Task<ActionResult<DocumentItems>> GetDocumentItems(int documentId)

@@ -25,8 +25,7 @@ namespace profisys_backend.Repositories
         {
             _context.Database.ExecuteSqlRaw("TRUNCATE TABLE Documents");
             _context.Database.ExecuteSqlRaw("TRUNCATE TABLE DocumentItems");
-
-
+            
         }
 
         public async Task<UploadFileResponse> UploadFileAsync(UploadFileRequest request, string path)
@@ -41,7 +40,10 @@ namespace profisys_backend.Repositories
             {
                 if(request.File.FileName.EndsWith(".csv"))
                 {
-                    var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                    CultureInfo culture = new CultureInfo("pl-PL");
+                    culture.NumberFormat.CurrencyDecimalSeparator = ",";
+                        
+                    var config = new CsvConfiguration(culture)
                     {
                         Delimiter = ";",
                         MissingFieldFound = null,
@@ -62,7 +64,6 @@ namespace profisys_backend.Repositories
 
                             foreach (var record in records)
                             {
-                                record.Price /= 100;
                                 documentItems.Add(record);
                             }
 

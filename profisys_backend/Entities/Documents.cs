@@ -18,7 +18,7 @@ namespace profisys_backend.Entities
 
         [Required]
         [Index(2)]
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
 
         [Required]
         [StringLength(50)]
