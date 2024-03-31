@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using profisys_backend.Data;
 using profisys_backend.Entities;
 using profisys_backend.Repositories.Contracts;
@@ -24,16 +25,10 @@ namespace profisys_backend.Repositories
         {
             if (documentId == 0)
             {
-                throw new ArgumentException("DocumentId cannot be 0");
+                throw new Exception("DocumentId cannot be 0");
             }
 
             var result = await _context.DocumentItems.Where(x => x.DocumentId == documentId).ToListAsync();
-
-            if (result.Count == 0)
-            {
-                throw new ArgumentException("No document items found for the given documentId");
-            }
-
             return result;
             
         }

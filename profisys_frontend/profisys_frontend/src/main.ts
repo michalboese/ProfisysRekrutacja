@@ -5,7 +5,6 @@ import PrimeVue from "primevue/config";
 import ToastService from "primevue/toastservice";
 import ConfirmationService from "primevue/confirmationservice";
 import "primevue/resources/themes/aura-light-blue/theme.css";
-//import "primevue/resources/themes/saga-blue/theme.css"; // Wybierz temat, który chcesz użyć
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 

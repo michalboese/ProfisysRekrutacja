@@ -35,95 +35,93 @@ namespace profisys_backend.Repositories
             List<DocumentItems> documentItems = new List<DocumentItems>();
             response.IsSuccess = true;
             response.Message = "File uploaded successfully";
-
-            try
-            {
-                if(request.File.FileName.EndsWith(".csv"))
-                {
-                    CultureInfo culture = new CultureInfo("pl-PL");
-                    culture.NumberFormat.CurrencyDecimalSeparator = ",";
-                        
-                    var config = new CsvConfiguration(culture)
-                    {
-                        Delimiter = ";",
-                        MissingFieldFound = null,
-                        HeaderValidated = null,
-                        BadDataFound = null,
-                    };
-
-                    DataTable value = new DataTable();
-                    using (var csv = new CsvReader(new StreamReader(request.File.OpenReadStream()), config))
-                    {
-                        csv.Read();
-                        csv.ReadHeader();
-
-                        if (csv.HeaderRecord.Contains("DocumentId"))
-                        {
-                            var records = csv.GetRecords<DocumentItems>();
-                            
-
-                            foreach (var record in records)
-                            {
-                                documentItems.Add(record);
-                            }
-
-                            if (documentItems.Count > 0)
-                            {
-                                try
-                                {
-                                    _context.DocumentItems.AddRange(documentItems);
-                                    await _context.SaveChangesAsync();
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    response.IsSuccess = false;
-                                    response.Message = ex.Message;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            var records = csv.GetRecords<Documents>();
-
-                            foreach (var record in records)
-                            {
-                                documents.Add(record);
-                            }
-
-                            if (documents.Count > 0)
-                            {
-                                try
-                                {
-                                    _context.Documents.AddRange(documents);
-                                    await _context.SaveChangesAsync();
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    response.IsSuccess = false;
-                                    response.Message = ex.Message;
-                                }
-                            }
-                        }
-
-             
-                    };
-
-                }
-                else
-                {
-                    response.IsSuccess = false;
-                    response.Message = "Invalid file format";
-                }
-
-            } catch (Exception ex)
+            
+            if (!request.File.FileName.EndsWith(".csv"))
             {
                 response.IsSuccess = false;
-                response.Message = ex.Message;
+                response.Message = "Invalid file format";
+                return response;
             }
-            return response;
 
+            CultureInfo culture = new CultureInfo("pl-PL");
+            culture.NumberFormat.CurrencyDecimalSeparator = ",";
+
+            var config = new CsvConfiguration(culture)
+            {
+                Delimiter = ";",
+                MissingFieldFound = null,
+                HeaderValidated = null,
+                BadDataFound = null,
+            };
+
+            DataTable value = new DataTable();
+            using (var csv = new CsvReader(new StreamReader(request.File.OpenReadStream()), config))
+            {
+                csv.Read();
+                csv.ReadHeader();
+
+                if (!csv.HeaderRecord.Contains("DocumentId"))
+                {
+                    var recordsDocuments = csv.GetRecords<Documents>();
+
+                    foreach (var record in recordsDocuments)
+                    {
+                        documents.Add(record);
+                    }
+
+                    if (documents.Count == 0)
+                    {
+                        response.IsSuccess = false;
+                        response.Message = "No data found in the file";
+                        return response;
+                    }
+
+                    try
+                    {
+                        _context.Documents.AddRange(documents);
+                        await _context.SaveChangesAsync();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        response.IsSuccess = false;
+                        response.Message = ex.Message;
+                    }
+                    
+                    response.IsSuccess = true;
+                    response.Message = "Documents uploaded successfully";
+                    return response;
+                }
+
+                var recordsItems = csv.GetRecords<DocumentItems>();
+
+                foreach (var record in recordsItems)
+                {
+                    documentItems.Add(record);
+                }
+
+                if (documentItems.Count == 0)
+                {
+                    response.IsSuccess = false;
+                    response.Message = "No data found in the file";
+                    return response;
+                }
+
+                try
+                {
+                    _context.DocumentItems.AddRange(documentItems);
+                    await _context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    response.IsSuccess = false;
+                    response.Message = ex.Message;
+                }
+                
+                response.IsSuccess = true;
+                response.Message = "Items uploaded successfully";
+                return response;
+            }
         }
     }
 }

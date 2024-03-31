@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Menubar from "primevue/menubar";
 import { ref } from "vue";
 import { useToast } from "primevue/usetoast";
-import FileUpload from "primevue/fileupload";
 import { useConfirm } from "primevue/useconfirm";
+import FileUpload from "primevue/fileupload";
+import Menubar from "primevue/menubar";
 
 const toast = useToast();
 const confirm = useConfirm();
@@ -79,11 +79,6 @@ const deleteDataConfirm = () => {
   });
 };
 
-function handleUpload() {
-  onUpload();
-  emit("refresh");
-}
-
 const onUpload = () => {
   toast.add({
     severity: "success",
@@ -92,6 +87,11 @@ const onUpload = () => {
     life: 3000,
   });
 };
+
+function handleUpload() {
+  onUpload();
+  emit("refresh");
+}
 </script>
 
 <template>

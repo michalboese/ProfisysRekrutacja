@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { onMounted, ref } from "vue";
+import { FilterMatchMode } from "primevue/api";
+import { getDocuments, getDocumentItems } from "../services/api";
 import DataTable from "primevue/datatable";
 import NavBar from "./NavBar.vue";
 import Column from "primevue/column";
-import { onMounted, ref } from "vue";
 import Panel from "primevue/panel";
-import { getDocuments, getDocumentItems } from "../services/api";
 import IconField from "primevue/iconfield";
 import InputIcon from "primevue/inputicon";
 import InputText from "primevue/inputtext";
-import { FilterMatchMode } from "primevue/api";
 
 interface Document {
   id: number;
@@ -28,11 +28,6 @@ interface DocumentItem {
   taxRate: number;
 }
 
-const documents = ref<Document[]>([]);
-const documentItems = ref<DocumentItem[]>([]);
-const expandedRows = ref([]);
-const dataLoaded = ref(false);
-
 const columns2 = [
   { field: "ordinal", header: "Ordinal" },
   { field: "product", header: "Product" },
@@ -49,6 +44,11 @@ const columns = [
   { field: "lastName", header: "Last Name" },
   { field: "city", header: "City" },
 ];
+
+const documents = ref<Document[]>([]);
+const documentItems = ref<DocumentItem[]>([]);
+const expandedRows = ref([]);
+const dataLoaded = ref(false);
 
 const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },

@@ -34,7 +34,7 @@ namespace profisys_backend.Controllers
 
 
         [HttpPost("UploadFile")]
-        public async Task<IActionResult> UploadFile([FromForm] UploadFileRequest request)
+        public async Task<ActionResult<UploadFileResponse>> UploadFile([FromForm] UploadFileRequest request)
         {
             UploadFileResponse response = new UploadFileResponse();
             string path = "UploadedFiles/" + request.File.FileName;

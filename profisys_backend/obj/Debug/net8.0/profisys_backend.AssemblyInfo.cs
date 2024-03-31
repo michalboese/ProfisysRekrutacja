@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("profisys_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a43485b37ff62a5d69a53e8ec39cf4accbb10ad5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f05c065a38c20ca6f26fd14ba004155ddc49cf1")]
 [assembly: System.Reflection.AssemblyProductAttribute("profisys_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("profisys_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

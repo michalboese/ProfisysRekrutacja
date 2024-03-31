@@ -17,7 +17,7 @@ namespace profisys_backend.Entities
 
         [Required]
         [StringLength(50)]
-        public string Product { get; set; }
+        public string Product { get; set; } = null!;
 
         [Required]
         public int Quantity { get; set; }

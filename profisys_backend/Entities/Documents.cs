@@ -14,7 +14,7 @@ namespace profisys_backend.Entities
         [Required]
         [StringLength(50)]
         [Index(1)]
-        public string Type { get; set; }
+        public string Type { get; set; } = null!;
 
         [Required]
         [Index(2)]
@@ -23,17 +23,17 @@ namespace profisys_backend.Entities
         [Required]
         [StringLength(50)]
         [Index(3)]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
 
         [Required]
         [StringLength(50)]
         [Index(4)]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = null!;
 
         [Required]
         [StringLength(50)]
         [Index(5)]
-        public string City { get; set; }
+        public string City { get; set; } = null!;
 
     }
 }
