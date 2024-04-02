@@ -165,4 +165,10 @@ onMounted(async () => {
 .container {
   margin-bottom: 2em;
 }
+
+:deep(.p-datatable .p-row-toggler) {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
 </style>

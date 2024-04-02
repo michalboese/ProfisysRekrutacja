@@ -117,6 +117,8 @@ namespace profisys_backend.Repositories
             UploadFileResponse response = new UploadFileResponse();
             List<Documents> documents = new List<Documents>();
             List<DocumentItems> documentItems = new List<DocumentItems>();
+            var checkDocuments = await _readDataRepository.GetDocumentsAsync();
+            var checkDocumentItems = await _readDataRepository.GetDocumentItemsAll();
             response.IsSuccess = true;
             response.Message = "File uploaded successfully";
             
@@ -145,6 +147,12 @@ namespace profisys_backend.Repositories
 
                 if (!csv.HeaderRecord.Contains("DocumentId"))
                 {
+                    if (checkDocuments.Count > 0)
+                    {
+                        response.IsSuccess = false;
+                        response.Message = "Documents already uploaded";
+                        return response;
+                    }
                     var recordsDocuments = csv.GetRecords<Documents>();
 
                     foreach (var record in recordsDocuments)
@@ -173,6 +181,13 @@ namespace profisys_backend.Repositories
                     
                     response.IsSuccess = true;
                     response.Message = "Documents uploaded successfully";
+                    return response;
+                }
+
+                if (checkDocumentItems.Count > 0)
+                {
+                    response.IsSuccess = false;
+                    response.Message = "Items already uploaded";
                     return response;
                 }
 

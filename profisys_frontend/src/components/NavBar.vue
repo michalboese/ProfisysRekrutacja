@@ -60,7 +60,7 @@ const items = ref([
 
 const deleteDataConfirm = () => {
   confirm.require({
-    message: "Do you want to delete this record?",
+    message: "Do you want to delete all documents?",
     header: "Danger Zone",
     icon: "pi pi-info-circle",
     rejectLabel: "Cancel",
