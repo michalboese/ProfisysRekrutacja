@@ -35,9 +35,11 @@ Po uruchomieniu backendu .sln należy wpisać komendę
   dotnet ef database update
 ```
 w Package Manager Console, aby utworzyć bazę danych.
-W razie potrzeby można zmienić ConnectionString w appsettings.json
+W razie potrzeby można zmienić ConnectionString w appsettings.json.
+Następnie należy włączyć rozwiązanie w trybie deweloperskim.
 
-Następnie w folderze profisys_frontend w konsoli wpisujemy komendy
+
+W folderze profisys_frontend w konsoli wpisujemy komendy
 ```bash
   npm install
   npm run dev
