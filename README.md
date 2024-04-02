@@ -27,11 +27,6 @@ Celem zadania jest stworzenie aplikacji desktopowej lub webowej opartej na platf
 - Usuwanie wszystkich rekordów z bazy danych
 
 
-## Screenshots
-
-![App Screenshot](https://i.imgur.com/hsvIkg4.png)
-
-
 ## Installation
 
 Po uruchomieniu backendu .sln należy wpisać komendę
@@ -49,3 +44,7 @@ Następnie w folderze profisys_frontend w konsoli wpisujemy komendy
 ```
 ,które zainstalują wszystkie potrzebne elementy i włączą lokalny serwer z aplikacją dostępny pod adresem http://localhost:5173/
     
+## Screenshots
+
+![App Screenshot](https://i.imgur.com/hsvIkg4.png)
+
