@@ -5,8 +5,6 @@ using profisys_backend.Repositories.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 // Add services to the container.
 builder.Services.AddDbContext<DataContext>(options =>
 {
@@ -40,4 +38,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using (var scope = app.Services.CreateScope())
+{
+    //upload data from directory
+    var uploadFilesRepository = scope.ServiceProvider.GetRequiredService<IUploadFilesRepository>();
+    await uploadFilesRepository.UploadDataFromDirectory();
+}
 app.Run();
+
+
+

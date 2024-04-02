@@ -7,6 +7,7 @@ namespace profisys_backend.Repositories.Contracts
     public interface IUploadFilesRepository
     {
         Task<UploadFileResponse> UploadFileAsync(UploadFileRequest request, string path);
+        Task UploadDataFromDirectory();
         void DeleteData();
     }
 }
