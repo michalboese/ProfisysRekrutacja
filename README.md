@@ -1,5 +1,5 @@
 
-# Rekrutacja Profisys
+# Profisys Rekrutacja
 
 Celem zadania jest stworzenie aplikacji desktopowej lub webowej opartej na platformie .NET, która powinna spełniać następujące zadania:
 
