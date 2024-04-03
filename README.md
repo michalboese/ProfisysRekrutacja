@@ -9,7 +9,7 @@ Celem zadania jest stworzenie aplikacji desktopowej lub webowej opartej na platf
 
 ## Tech Stack
 
-**Client:** Vue, Vite, PrimeVue
+**Client:** Vue v3.4, Vite, PrimeVue
 
 **Server:** ASP.NET 8.0 Web API, EntityFramework
 
